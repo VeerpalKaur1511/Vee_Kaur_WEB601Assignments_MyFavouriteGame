@@ -17,7 +17,7 @@ export class ContentListComponent {
   }
   typePresent:boolean | undefined;
   inputValue:string='';
-  
+  defaultImageUrl:string='https://i.pinimg.com/originals/90/70/58/9070587de0e3227cba0d9a6a880b4682.jpg'; 
   constructor(){
   this.contentArray.push(
     
@@ -35,7 +35,7 @@ export class ContentListComponent {
         title: 'Football',
          description: 'Association football or soccer', 
          creator: 'James Haldane ', 
-         imgURL: 'https://mir-s3-cdn-cf.behance.net/project_modules/fs/f8c677104758261.5f6a25a1a5f8d.jpg',
+         imgURL: '',
           type: '',
         tags: ['Tag3', 'Tag6'] 
       },
@@ -79,7 +79,7 @@ export class ContentListComponent {
         title: 'Hockey', 
         description: 'Cycling is goods for health', 
         creator: 'Nature', 
-        imgURL: 'https://th.bing.com/th/id/R.4952f346cd0a2489bdf8ca97ac2647e0?rik=BMQLgC1M4LIkMw&pid=ImgRaw&r=0', 
+        imgURL: 'https://mir-s3-cdn-cf.behance.net/project_modules/fs/f8c677104758261.5f6a25a1a5f8d.jpg', 
         type: 'outdoor', 
         tags: ['Tag5', 'Tag6'] 
       },
