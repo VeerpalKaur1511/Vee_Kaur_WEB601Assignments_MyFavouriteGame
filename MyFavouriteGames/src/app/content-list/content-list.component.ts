@@ -8,6 +8,16 @@ import { Content} from '../helper-files/content-interface'
   styleUrl: './content-list.component.scss'
 })
 export class ContentListComponent {
+  onContentAdded(newContent: Content) {
+    // Handle the addition of new content here
+    console.log('New content added:', newContent);
+    // Push the new content to the contentArray
+    // let newContentArray = this.contentArray;
+    // newContentArray.push(newContent);
+    // this.contentArray = newContentArray;
+
+    this.contentArray = [...this.contentArray, newContent];
+  }
 
   name : string | undefined;
    contentArray: Content[] = [];
