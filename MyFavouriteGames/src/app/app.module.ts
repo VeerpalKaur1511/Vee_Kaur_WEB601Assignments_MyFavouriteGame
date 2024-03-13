@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { ContentListComponent } from './content-list/content-list.component';
 import { ContentTypeFilterPipe } from './content-type-filter.pipe';
 import { HoverAffectDirective } from './hover-affect.directive';
+import { AppMessagesComponent } from './app-messages/app-messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContentListComponent,
     ContentTypeFilterPipe,
-    HoverAffectDirective
+    HoverAffectDirective,
+    AppMessagesComponent
   ],
   imports: [
     BrowserModule,

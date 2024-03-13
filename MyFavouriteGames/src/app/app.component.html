@@ -1,1 +1,10 @@
 <app-content-list> </app-content-list>
+<app-content-card [content]="singleContent" class="content-card"></app-content-card>
+<app-app-messages></app-app-messages>
+
+<div>
+    <input type="number" [(ngModel)]="inputId" placeholder="Enter ID number">
+    <button (click)="getContentById()">Get Content by ID</button>
+</div>
+
+
