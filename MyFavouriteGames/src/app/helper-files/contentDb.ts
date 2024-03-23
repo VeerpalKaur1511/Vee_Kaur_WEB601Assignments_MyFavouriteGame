@@ -31,7 +31,7 @@ export const contentDB=[
           title: 'Cash ', 
           description: 'Description for all games', 
           creator: 'Harry tho', 
-          imgURL: 'https://www.wallpaperup.com/uploads/wallpapers/2014/06/24/377589/38350a3152f132e5dbc4de5e802734b4.jpg', 
+          imgURL: 'https://th.bing.com/th/id/OIP.QiY9_ch3mhhluBEZvDlsFAHaEO?rs=1&pid=ImgDetMain', 
           type: 'Computer', 
           tags: ['Tag5', 'Tag6'] 
         },  { 
