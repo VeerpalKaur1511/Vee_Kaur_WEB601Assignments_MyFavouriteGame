@@ -1,17 +1,4 @@
-export class ContentListComponent {
-
-    name : string | undefined;
-     contentArray: Content[] = [];
-     logContentInfo(id: string, title: string) {
-      console.log("Content ID:", id);
-      console.log("Content Title:", title);
-    }
-    typePresent:boolean | undefined;
-    inputValue:string='';
-    defaultImageUrl:string='https://i.pinimg.com/originals/90/70/58/9070587de0e3227cba0d9a6a880b4682.jpg'; 
-    constructor(){
-    this.contentArray.push(
-      
+export const contentDB=[
         { 
           id: 1, 
           title: 'Badminton',
@@ -91,26 +78,10 @@ export class ContentListComponent {
           imgURL: 'https://omgnepal.com/wp-content/uploads/2020/07/Best-Beginner-Road-Bikes-gear-patrol-full-lead.jpg', 
           type: 'outdoor', 
           tags: ['Tag5', 'Tag6'] 
-        },
-        
-       );
-        
-      }
+        }]
   
   
-  search(str:string){
+ 
        
-    for(let  i=0; i < this.contentArray.length; i++){
-      if(this.contentArray[i].title==str)
-      {
-        this.typePresent=true;
-        break;
-      }
-    
-    else if(this.contentArray[i].title!=str)
-     this.typePresent=false;
-    }
-        
-      }
-  
-  }
+
+     

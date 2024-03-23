@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GameService } from '../services/game.service';
+import { GameServiceService} from '../services/game.service';
 
 // import { ContentList } from '../helper-files/content-list';
 import { Content} from '../helper-files/content-interface'
@@ -10,29 +10,18 @@ import { Content} from '../helper-files/content-interface'
   styleUrl: './content-list.component.scss'
 })
 
-export class ContentListComponent implements OnInit {
-  contentList: any[];
+export class ContentListComponent {
 
-  constructor(private gameService: GameService) {}
-
-  ngOnInit(): void {
-      this.gameService.getContent().subscribe(content => {
-          this.contentList = content;
-      });
+  name : string | undefined;
+   contentArray: Content[] = [];
+   contentItem: Content;
+   logContentInfo(id: string, title: string) {
+    console.log("Content ID:", id);
+    console.log("Content Title:", title);
   }
-}
-// export class ContentListComponent {
-
-//   name : string | undefined;
-//    contentArray: Content[] = [];
-//    logContentInfo(id: string, title: string) {
-//     console.log("Content ID:", id);
-//     console.log("Content Title:", title);
-//   }
-//   typePresent:boolean | undefined;
-//   inputValue:string='';
-//   defaultImageUrl:string='https://i.pinimg.com/originals/90/70/58/9070587de0e3227cba0d9a6a880b4682.jpg'; 
-//   constructor(){
+  typePresent:boolean | undefined;
+  inputValue:string='';
+  constructor(private service:GameServiceService){
 //   this.contentArray.push(
     
 //       { 
@@ -117,23 +106,29 @@ export class ContentListComponent implements OnInit {
 //       },
       
 //      );
-      
-//     }
+  }
+  ngOnInit(){
+    console.log("service")
+
+    this.service.getContent().subscribe((res: any)=>{
+      console.log(res)
+      this.contentArray.push(...res)
+    })}
 
 
-// search(str:string){
+search(str:string){
      
-//   for(let  i=0; i < this.contentArray.length; i++){
-//     if(this.contentArray[i].title==str)
-//     {
-//       this.typePresent=true;
-//       break;
-//     }
+  for(let  i=0; i < this.contentArray.length; i++){
+    if(this.contentArray[i].title==str)
+    {
+      this.typePresent=true;
+      break;
+    }
   
-//   else if(this.contentArray[i].title!=str)
-//    this.typePresent=false;
-//   }
-//       
-//     }
+  else if(this.contentArray[i].title!=str)
+   this.typePresent=false;
+  }
+      
+    }
 
-// }
+}

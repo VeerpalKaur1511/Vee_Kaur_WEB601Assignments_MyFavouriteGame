@@ -1,30 +1,31 @@
-// your-theme.service.ts
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { content } from '../helper-files/contentDb';
+import { Observable } from 'rxjs/internal/Observable';
+import { map, of } from 'rxjs';
+import { contentDB } from '../helper-files/contentDB';
 import { MessageService } from './message.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class GameServiceService {
-    constructor(private messageService: MessageService) {}
+    constructor(private messageService: MessageService) { }
+
 
     getContent(): Observable<any[]> {
-        this.messageService.changeMessage('Content array loaded!');
-        return of(content);
+      this.messageService.add("Content array loaded!");
+  
+      return of (contentDB);
     }
-
+  
     getContentById(id: number): Observable<any> {
-      if (id < 1 || id > content.length || isNaN(id)) {
-          this.messageService.changeMessage('Error: ID number is out of bounds.');
-          return of(null);
-      }
-
-      const item = content.find(item => item.id === id);
-      if (item) {
-          this.messageService.changeMessage(`Content Item at id: ${id}`);
-      }
-      return of(item);
+      this.messageService.add("Content Item at id:" + id)
+      return this.getContent().pipe(
+        map(contentArray => contentArray.find(content => content.id === id))
+      );
     }
-}
+  
+    getSingleContentById(id: number): Observable<any> {
+      return this.getContent().pipe(
+        map(contentArray => contentArray.find(content => content.id === id))
+      );
+    }};

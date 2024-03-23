@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { GameService } from './services/game.service';
+import { Component, OnInit } from '@angular/core';
+
 import { MessageService } from './services/message.service';
+import { GameServiceService } from './services/game.service';
+import { Content } from './helper-files/content-interface';
 
 
 
@@ -10,27 +12,14 @@ import { MessageService } from './services/message.service';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  inputId: number;
-  singleContent: any;
+  topContentItem: Content; 
 
-  constructor(private gameService: GameService,
-    private messageService: MessageService
-    ) {}
+  constructor(private service: GameServiceService) { }
 
-    getContentById(): void {
-      if (isNaN(this.inputId)) {
-          this.messageService.changeMessage('Error: Please enter a valid number.');
-          return;
-      }
-      this.gameService.getContentById(this.inputId).subscribe(
-        (item) => {
-            this.singleContent = item;
-        },
-        (error) => {
-            this.messageService.changeMessage('Error: An error occurred while retrieving content.');
-        }
-    );
-
+  ngOnInit(): void {
+  
+    this.service.getContentById(6).subscribe((res: any) => {
+      this.topContentItem = res;
+    });
   }
-}
 }
